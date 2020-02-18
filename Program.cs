@@ -7,9 +7,8 @@ namespace dotnetcore
         static void Main(string[] args)
         {
             //switch
-            A_label:
-            var number = (new Random()).Next(1, 7);            
-            Console.WriteLine($"My Random number is {number}");
+            START:
+            var number = (new Random()).Next(1, 6);
             switch(number)
             {
                 case 1:
@@ -19,12 +18,15 @@ namespace dotnetcore
                     Console.WriteLine("Two");
                     break;
                 case 3:
-                case 4:
-                    Console.WriteLine("Three or four");
+                    END:
+                    Console.WriteLine("Three");
                     break;
+                case 4:
+                    Console.WriteLine("Four");
+                    goto END;
                 case 5:
-                    System.Threading.Thread.Sleep(500);                        
-                    goto A_label;
+                    Console.WriteLine("Five");
+                    goto START;
                 default:
                     Console.WriteLine("Default");
                 break;
